@@ -39,7 +39,7 @@ namespace mymethods
         }
         public static double GetDis(Point p1,Point p2)
         {
-            return GetDis(p1, p2);
+            return GetDis(p1.X,p1.Y, p2.X,p2.Y);
         }
         public static double GetSlope(double x1,double x2,double y1,double y2)
         {
@@ -47,7 +47,7 @@ namespace mymethods
         }
         public static double GetSlope(Point p1, Point p2)
         {
-            return GetSlope(p1, p2);
+            return GetSlope(p1.X,p1.Y, p2.X,p2.Y);
         }
         public static double GetYInterdex(Point p1,Point p2,double x1)
         {
@@ -92,45 +92,7 @@ namespace mymethods
                 back = back + sb[i];
             return back;
         }
-        public static double Averge(double[] doubnt,double sum,double done)
-        {
-            int dtl=doubnt.Length,i;
-            for(i=0;i<dtl;i++)            
-                sum =sum+ doubnt[i];
-            done = sum / dtl;
-            return done;
-        }
-        public static double Averge(int[]inuble,int il)
-        {
-            il=inuble.Length;
-            double[] ld=new double[il];
-            int i;
-            for(i=0;i<il;i++)
-                ld[i] = inuble[i] +0.00;
-            return Averge(ld, 0.00, 0);
-        }
-        public static double RootChecker(double a,double b, double c)
-        {
-            double sum = Math.Sqrt(a);
-            sum=sum+ Math.Sqrt(b);
-            sum=sum+ Math.Sqrt(c);
-            return sum;
-        }
-        public static double RootChecker(int a2,int b2,int c2)
-        {
-            double a=a2,b=b2,c=c2;
-            return RootChecker(a, b, c);
-        }
-        public static double Circumference(double r)
-        {
-            double c=r*r*Math.PI;
-            return c;
-        }
-        public static double Circumference(int r2)
-        {
-            double r=r2;
-            return Circumference(r);
-        }
+        
         
     }
 }
