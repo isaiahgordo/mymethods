@@ -6,7 +6,7 @@ namespace mymethods
     {
         static void Main(string[] args)
         {
-            Point[] xys = new Point[2];
+            Point[] xys = new Point[2],coor=new Point[2];
             bool done = 0 == 1,tp,stp;
             bool[] d0ne = new bool[13];
             int i, ioc, itp, istp, ss0i, ssi,emt,x,y,x1,y1,iop,ioy;
@@ -40,11 +40,11 @@ namespace mymethods
                     Console.WriteLine("Type two numbers or numbs with { . } with a , in between");
                     s = Console.ReadLine().Trim();
                     ioc = s.IndexOf(",");
-                    tp = int.TryParse(s.Substring(0, ioc ), out itp);
+                    tp = int.TryParse(s.Substring(0, ioc), out itp);
                     stp = int.TryParse(s.Substring(ioc + 1), out istp);
                     if (s.Contains("."))
                     {
-                        double.TryParse(s.Substring(0, ioc ), out dtp);
+                        double.TryParse(s.Substring(0, ioc), out dtp);
                         double.TryParse(s.Substring(++ioc), out dstp);
                         gh = MyMethods.GetHyp(dtp, dstp);
                         Console.WriteLine(gh);
@@ -53,7 +53,7 @@ namespace mymethods
                     {
                         dtp = itp;
                         dstp = istp;
-                         gh = MyMethods.GetHyp(dtp, dstp);
+                        gh = MyMethods.GetHyp(dtp, dstp);
                         Console.WriteLine(gh);
                     }
                     else
@@ -64,9 +64,9 @@ namespace mymethods
                     Console.WriteLine("Type two numbers or numbs with { . } with a , in between the first must be more");
                     s = Console.ReadLine().Trim();
                     ioc = s.IndexOf(",");
-                    tp = int.TryParse(s.Substring(0, ioc ), out itp);
+                    tp = int.TryParse(s.Substring(0, ioc), out itp);
                     stp = int.TryParse(s.Substring(ioc + 1), out istp);
-                    int.TryParse(s.Substring(0, ioc ), out ss0i);
+                    int.TryParse(s.Substring(0, ioc), out ss0i);
                     int.TryParse(s.Substring(ioc + 1), out ssi);
                     if (ss0i > ssi)
                     {
@@ -95,16 +95,16 @@ namespace mymethods
                     Console.WriteLine("type 2 nums.8 with , inbetween");
                     s = Console.ReadLine().Trim();
                     ioc = s.IndexOf(",");
-                    selp[0]=s.Substring(0, ioc );
-                    selp[1]=s.Substring(ioc + 1);
-                    tp = int.TryParse(selp[0],out emt) || int.TryParse(selp[1],out emt);
+                    selp[0] = s.Substring(0, ioc);
+                    selp[1] = s.Substring(ioc + 1);
+                    tp = int.TryParse(selp[0], out emt) || int.TryParse(selp[1], out emt);
                     if (s.Contains("."))
                     {
                         selp[0] = selp[0].Replace(".", ",");
                         selp[1] = selp[1].Replace(".", ",");
                         ioc = selp[0].IndexOf(",");
-                        xys[0].Y = int.Parse(selp[0].Substring( 0,ioc )); xys[0].X = int.Parse(selp[0].Substring(ioc + 1));
-                        xys[1].Y = int.Parse(selp[1].Substring(0, ioc )); xys[1].X = int.Parse(selp[1].Substring(ioc + 1));
+                        xys[0].Y = int.Parse(selp[0].Substring(0, ioc)); xys[0].X = int.Parse(selp[0].Substring(ioc + 1));
+                        xys[1].Y = int.Parse(selp[1].Substring(0, ioc)); xys[1].X = int.Parse(selp[1].Substring(ioc + 1));
                         double huble = MyMethods.GetRise(xys[0], xys[1]);
                         Console.WriteLine(huble);
                     }
@@ -118,22 +118,21 @@ namespace mymethods
                     else Console.WriteLine("need numbers");
                 }
                 else if (s == "3")
-                {                    
+                {
                     Console.WriteLine("enter 4 nums with , in between or two nums like 0.0 and , inbetween");
                     s = Console.ReadLine().Trim();
                     ioc = s.IndexOf(",");
-                    tp= int.TryParse(s.Substring(0, ioc ), out x);
+                    tp = int.TryParse(s.Substring(0, ioc), out x);
                     if (s.Contains("."))
                     {
                         iop = s.IndexOf(".");
                         int.TryParse(s.Substring(0, iop), out x);
                         int.TryParse(s.Substring(iop + 1), out y);
                         ioy = s.IndexOf(y.ToString());
-                        s=s.Replace(x.ToString()+","+y.ToString(),"");
+                        s = s.Replace(x.ToString() + "," + y.ToString(), "");
                         iop = s.IndexOf(".");
                         int.TryParse(s.Substring(0, iop), out x1);
                         int.TryParse(s.Substring(iop + 1), out y1);
-                        Point[] coor = new Point[2];
                         coor[0].X = x;
                         coor[0].Y = y;
                         coor[1].X = x1;
@@ -144,12 +143,12 @@ namespace mymethods
                     else if (tp == true)
                     {
                         int.TryParse(s.Substring(0, ioc), out x);
-                        int.TryParse(s.Substring(ioc + 1,1), out y);
+                        int.TryParse(s.Substring(ioc + 1, 1), out y);
                         ioy = s.IndexOf(y.ToString());
-                        s = s.Replace(x.ToString() + "," + y.ToString()+",", "");
-                        ioc= s.IndexOf(",");
+                        s = s.Replace(x.ToString() + "," + y.ToString() + ",", "");
+                        ioc = s.IndexOf(",");
                         int.TryParse(s.Substring(0, ioc), out x1);
-                        int.TryParse(s.Substring(ioc + 1,1), out y1);
+                        int.TryParse(s.Substring(ioc + 1, 1), out y1);
                         dis = MyMethods.GetDis(x, y, x1, y1);
                         Console.WriteLine(dis);
                     }
@@ -158,18 +157,73 @@ namespace mymethods
                 else if (s == "4")
                 {
                     Console.WriteLine("4 nums , or 2 num.7 ,");
-                    s=Console.ReadLine().Trim();
+                    s = Console.ReadLine().Trim();
                     ioc = s.IndexOf(",");
-                    if(s.Contains("."))
+                    tp = int.TryParse(s.Substring(0, ioc), out x);
+                    if (s.Contains("."))
                     {
+                        iop = s.IndexOf(".");
+                        int.TryParse(s.Substring(0, iop), out x);
+                        int.TryParse(s.Substring(iop + 1, ioc), out y);
+                        s = s.Replace(x.ToString() + "." + y.ToString(), "");
+                        iop = s.IndexOf(".");
+                        int.TryParse(s.Substring(0, iop), out x1);
+                        int.TryParse(s.Substring(iop + 1), out y1);
+                        coor[0].X = x;
+                        coor[0].Y = y;
+                        coor[1].X = x1;
+                        coor[1].Y = y1;
+                        dis = MyMethods.GetSlope(coor[0], coor[1]);
+                    }
+                    else if (tp == true)
+                    {
+                        int.TryParse(s.Substring(0, ioc), out x);
+                        int.TryParse(s.Substring(ioc + 1), out y);
+                        s = s.Replace(x.ToString() + "," + y.ToString() + ",", "");
+                        ioc = s.IndexOf(",");
+                        int.TryParse(s.Substring(0, ioc), out x1);
+                        int.TryParse(s.Substring(ioc + 1), out y1);
+                        dis = MyMethods.GetSlope(x, y, x1, y1);
+                    }
+                    else
+                        Console.WriteLine("You need numbers");
+                }
+                else if (s == "5")
+                {
+                    stp = done;
+                    while (stp == done)
+                    {
+                        Console.WriteLine("5 nums , 2 nums.7,num ,");
+                        s = Console.ReadLine().Trim();
+                        ioc = s.IndexOf(",");
+                        tp= int.TryParse(s.Substring(0, ioc), out x);
+                        if (s.Contains("."))
+                        {
+                            iop = s.IndexOf(".");
+                            int.TryParse(s.Substring(0, iop), out x);
+                            int.TryParse(s.Substring(iop + 1, ioc), out y);
+                            s = s.Replace(x.ToString() + "." + y.ToString(), "");
+                            iop = s.IndexOf(".");
+                            int.TryParse(s.Substring(0, iop), out x1);
+                            int.TryParse(s.Substring(iop + 1), out y1);
+                            coor[0].X = x;
+                            coor[0].Y = y;
+                            coor[1].X = x1;
+                            coor[1].Y = y1;
+                            
+                        }
+                        else if(tp== true)
+                        {
+                            int.TryParse(s.Substring(0, ioc), out x);
+                            int.TryParse(s.Substring(ioc + 1, 1), out y);
 
+                        }
                     }
                 }
-                else if (s == "5") ;
                 else if (s == "6") ;
                 else if (s == "7") ;
                 else if (s == "8") ;
-                else if (s == "9") 
+                else if (s == "9")
                     done = true;
                 else
                     Console.WriteLine("type a number between 0 and 13 nothing above or bleow");
