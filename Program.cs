@@ -226,7 +226,7 @@ namespace mymethods
                 else if (s == "9")
                     done = true;
                 else
-                    Console.WriteLine("type a number between 0 and 13 nothing above or bleow");
+                    Console.WriteLine("type a number between 0 and 10 nothing above 10 or bleow 0");
             }
         }
     }
